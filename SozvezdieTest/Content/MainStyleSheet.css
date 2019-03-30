@@ -1,0 +1,57 @@
+﻿body {
+
+}
+
+h2 {
+    color:white;
+    font-family:Arial;
+}
+
+
+.element {
+    vertical-align: top;
+    width: 33%;
+    display: inline-block;
+    align-self:center;
+}
+
+.element-icon {
+    height: 400px;
+    width: 320px;
+}
+
+.container {
+    width:1000px;
+    margin:0 auto;
+}
+
+.icon-description {
+    width: inherit;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header {
+    text-align: center;
+}
+
+.duration {
+    padding-bottom:5px;
+}
+
+a.text:active,
+a.text:hover,
+a.text {
+    text-decoration: none;
+    color: #666;
+}
+
+.description {
+    text-align: left;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+    padding: 10px;
+    margin: 0px 10px 0px 0px;
+    height: 150px;
+}

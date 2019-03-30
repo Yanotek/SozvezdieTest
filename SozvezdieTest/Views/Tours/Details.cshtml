@@ -1,0 +1,44 @@
+﻿@model SozvezdieTest.Models.Tour
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    @Styles.Render("~/Content/detailsCss")
+</head>
+<body>
+    <section class="container">
+        <div>
+            <h1 class="center">@Html.DisplayFor(model => model.Title)</h1>
+            <hr />
+            <p class="center duration-text">@Html.DisplayFor(model => model.Duration)</p>
+            <p class="center">
+                <img class="main-ico" src="@Html.DisplayFor(m=> m.PhotoCard.Photo)">
+            </p>
+            <p class="center">
+                @foreach (var b in Model.PhotoAlbum)
+                {
+                    <img class="optional-ico" src="@Html.DisplayFor(m=> m.PhotoCard.Photo)">
+                }
+            </p>
+            <p class="route-header">Программа тура:</p>
+            <ul>
+                @foreach (var b in Model.Route)
+                {
+                    <li class="route-element">@b</li>
+                }
+            </ul>
+            <p class="center description">@Html.DisplayFor(model => model.Description)</p>
+        </div>
+        <p>
+            <a class="text button" href="/Tours">Вернуться к списку туров</a>
+        </p>
+    </section>
+</body>
+</html>

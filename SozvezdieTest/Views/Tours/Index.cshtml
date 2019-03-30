@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SozvezdieTest.Models.Tour>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/mainCss")
+</head>
+<body>
+    <section>
+        <div class="container">
+            @foreach (var item in Model)
+            {
+                <div class="element">
+                    <a class="text" href="/Tours/Details?id=@item.Id">
+                        <div class="element-icon" style="background: url(@Html.DisplayFor(m=> item.PhotoCard.Thumbnail)) no-repeat center top / cover">
+                            <div class="icon-description">
+                                <h2 class="header">
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </h2>
+                                <h2 class="header duration">
+                                    @Html.DisplayFor(modelItem => item.Duration)
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="description">
+                            @if(item.MinPrice != 0)
+                            {
+                                <p>
+                                    <strong>Цена от: @Html.DisplayFor(modelItem => item.MinPrice)</strong>
+                                </p>
+                            }
+                            <p>
+                                @Html.DisplayFor(modelItem => item.Header)
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </section>
+</body>
+</html>
