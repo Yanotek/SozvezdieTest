@@ -24,7 +24,7 @@
             <p class="center">
                 @foreach (var b in Model.PhotoAlbum)
                 {
-                    <img class="optional-ico" src="@Html.DisplayFor(m=> m.PhotoCard.Photo)">
+                    <img class="optional-ico" src="@Html.DisplayFor(m=> b.Photo)">
                 }
             </p>
             <p class="route-header">Программа тура:</p>
