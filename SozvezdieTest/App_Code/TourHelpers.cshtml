@@ -6,7 +6,7 @@
         }
     }
     <div class="element">
-        <a class="text" id="element-id">
+        <a class="text" id="element-id" href="/Tours/Details?id=@tour.Id">
             @{
                 string photo = tour.PhotoCard?.Thumbnail;
             }
@@ -23,13 +23,13 @@
             <div class="description">
                 <p>
                     <strong id="element-price">
-                        @tour.MinPrice
+                        Цена от: @tour.MinPrice р.
                     </strong>
                 </p>
                 <p id="element-header">
                     @tour.Header
                 </p>
-                </div>
+            </div>
         </a>
     </div>
     }
