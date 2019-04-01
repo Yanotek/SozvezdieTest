@@ -31,6 +31,9 @@ namespace SozvezdieTest
 
             bundles.Add(new StyleBundle("~/Content/detailsCss").Include(
                       "~/Content/details-theme.css"));
+
+            bundles.Add(new ScriptBundle("~/tours/script").Include(
+                        "~/Scripts/tours.page.script.js"));
         }
     }
 }

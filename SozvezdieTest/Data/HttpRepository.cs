@@ -16,11 +16,14 @@ namespace SozvezdieTest.Data
         {
             BaseAddress = new Uri("https://cdn.sozvezdie-tour.ru")
         };
-        public List<Tour> GetTours()
+        public List<Tour> GetTours(int page, int countOnPage)
         {
             LoadTours();
 
-            return Tours;
+            return Tours
+                .Skip(page * countOnPage)
+                .Take(countOnPage)
+                .ToList();
         }
 
         public Tour GetTour(int Id)

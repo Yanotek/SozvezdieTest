@@ -15,7 +15,7 @@ namespace SozvezdieTest.Models
         public DateTime PeriodEnd { get; set; }
         public double MinPrice { get; set; }
         public PhotoCard PhotoCard { get; set; }
-        public List<PhotoCard> PhotoAlbum { get; set; }
+        public List<PhotoCard> PhotoAlbum { get; set; } = new List<PhotoCard>();
         public List<string> Route { get; set; }
 
         public string Duration

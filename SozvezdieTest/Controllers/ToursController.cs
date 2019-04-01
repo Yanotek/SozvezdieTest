@@ -9,20 +9,32 @@ namespace SozvezdieTest.Controllers
 {
     public class ToursController : Controller
     {
+        static int countToursOnPage = 9;
         HttpRepository httpRepository;
         public ToursController()
         {
             httpRepository = new HttpRepository();
         }
-        // GET: Tours
+        
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(httpRepository.GetTours());
+            return View(httpRepository.GetTours(0, countToursOnPage));
         }
 
+        [HttpGet]
         public ActionResult Details(int Id)
         {
             return View(httpRepository.GetTour(Id));
+        }
+
+        [HttpGet]
+        public ActionResult GetPage(int page)
+        {
+            return Json(httpRepository
+                .GetTours(page, countToursOnPage)
+                .Select(x => new { x.Id, x.Title, x.Header, x.Duration, x.MinPrice, x.PhotoCard })
+                , JsonRequestBehavior.AllowGet);
         }
     }
 }

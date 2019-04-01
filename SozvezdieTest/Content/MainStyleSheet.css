@@ -55,3 +55,12 @@ a.text {
     margin: 0px 10px 0px 0px;
     height: 150px;
 }
+
+.button {
+    background: #f97167;
+    display: block;
+    width: 240px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
