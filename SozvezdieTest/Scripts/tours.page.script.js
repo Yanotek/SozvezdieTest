@@ -36,7 +36,7 @@ function addTour(tour) {
     var container = document.querySelector("div.container");
     var buttoncontainer = document.querySelector("p.button-container");
     var clone = document.importNode(template.content, true);
-    clone.querySelector("#element-id").setAttribute("href", "/Tours/Details?id=2");
+    clone.querySelector("#element-id").setAttribute("href", "/Tours/Details?id=" + tour.Id);
     clone.querySelector("#element-icon").setAttribute("style", "background: url(" + tour.PhotoCard.Thumbnail + ") no-repeat center top / cover");
     clone.querySelector("#element-title").innerText = tour.Title;
     clone.querySelector("#element-duration").innerText = tour.Duration;
