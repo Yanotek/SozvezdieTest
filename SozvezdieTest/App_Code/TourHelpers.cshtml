@@ -1,0 +1,35 @@
+﻿@helper MakeTour(SozvezdieTest.Models.Tour tour) { 
+    { 
+        if (tour == null)
+        {
+            tour = new SozvezdieTest.Models.Tour();
+        }
+    }
+    <div class="element">
+        <a class="text" id="element-id">
+            @{
+                string photo = tour.PhotoCard?.Thumbnail;
+            }
+            <div class="element-icon" id="element-icon" style="background: url(@photo) no-repeat center top / cover">
+                <div class="icon-description">
+                    <h2 class="header" id="element-title">
+                        @tour.Title
+                    </h2>
+                    <h2 class="header duration" id="element-duration">
+                        @tour.Duration
+                    </h2>
+                </div>
+            </div>
+            <div class="description">
+                <p>
+                    <strong id="element-price">
+                        @tour.MinPrice
+                    </strong>
+                </p>
+                <p id="element-header">
+                    @tour.Header
+                </p>
+                </div>
+        </a>
+    </div>
+    }

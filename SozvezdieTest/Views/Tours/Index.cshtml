@@ -15,52 +15,13 @@
 </head>
 <body>
     <template id="tourElement">
-        <div class="element">
-            <a class="text" id="element-id">
-                <div class="element-icon" id="element-icon">
-                    <div class="icon-description">
-                        <h2 class="header" id="element-title"></h2>
-                        <h2 class="header duration" id="element-duration"></h2>
-                    </div>
-                </div>
-                <div class="description">
-                    <p>
-                        <strong id="element-price"></strong>
-                    </p>
-                    <p id="element-header"></p>
-                </div>
-            </a>
-        </div>
+        @TourHelpers.MakeTour(null)
     </template>
     <section>
         <div class="container">
-            @foreach (var item in Model)
+            @foreach (var tour in Model)
             {
-                <div class="element">
-                    <a class="text" href="/Tours/Details?id=@item.Id">
-                        <div class="element-icon" style="background: url(@Html.DisplayFor(m=> item.PhotoCard.Thumbnail)) no-repeat center top / cover">
-                            <div class="icon-description">
-                                <h2 class="header">
-                                    @Html.DisplayFor(modelItem => item.Title)
-                                </h2>
-                                <h2 class="header duration">
-                                    @Html.DisplayFor(modelItem => item.Duration)
-                                </h2>
-                            </div>
-                        </div>
-                        <div class="description">
-                            @if (item.MinPrice != 0)
-                            {
-                                <p>
-                                    <strong>Цена от: @Html.DisplayFor(modelItem => item.MinPrice)</strong>
-                                </p>
-                            }
-                            <p>
-                                @Html.DisplayFor(modelItem => item.Header)
-                            </p>
-                        </div>
-                    </a>
-                </div>
+                @TourHelpers.MakeTour(tour)
             }
             <p class="button-container">
                 <a class="text button" onclick="loadMoreTours()">Загрузить ещё</a>
