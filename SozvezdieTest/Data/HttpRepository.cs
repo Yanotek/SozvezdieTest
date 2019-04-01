@@ -10,23 +10,35 @@ namespace SozvezdieTest.Data
 {
     public class HttpRepository
     {
+        static List<Tour> Tours = new List<Tour>();
+
         HttpClient client = new HttpClient
         {
             BaseAddress = new Uri("https://cdn.sozvezdie-tour.ru")
         };
         public List<Tour> GetTours()
         {
-            string tours = client.GetStringAsync("/demo_offers.json").Result;
+            LoadTours();
 
-            return JsonConvert.DeserializeObject<List<Tour>>(tours);
+            return Tours;
         }
 
         public Tour GetTour(int Id)
         {
-            string tours = client.GetStringAsync("/demo_offers.json").Result;
+            LoadTours();
 
-            return JsonConvert.DeserializeObject<List<Tour>>(tours)
+            return Tours
                 .FirstOrDefault(x=> x.Id == Id);
+        }
+
+        void LoadTours()
+        {
+            if(!Tours.Any())
+            {
+                string tours = client.GetStringAsync("/demo_offers.json").Result;
+
+                Tours = JsonConvert.DeserializeObject<List<Tour>>(tours);
+            }
         }
     }
 }
