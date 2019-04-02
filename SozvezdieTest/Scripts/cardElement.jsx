@@ -12,7 +12,7 @@
             };
         }
         return <div className="element">
-            <a className="text" id="element-id">
+            <a className="text" id="element-id" onClick={(e) => this.props.showDetail(this.props.Data.Id)}>
                 <div className="element-icon" id="element-icon" style={styleIcon}>
                     <div className="icon-description">
                         <h2 className="header" id="element-title">

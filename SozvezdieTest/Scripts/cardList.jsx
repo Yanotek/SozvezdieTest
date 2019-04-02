@@ -1,15 +1,14 @@
-﻿var page = 0;
-
-var request = new XMLHttpRequest();
+﻿var request = new XMLHttpRequest();
 
 class CardList extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.showDetailPage = this.showDetailPage.bind(this);
         this.loadMoreTours = this.loadMoreTours.bind(this);
         this.addTours = this.addTours.bind(this);
         this.state = {
-            items: []
+            items: [],
+            currentPage: this.props.currentPage
         };
         this.loadMoreTours();
     }
@@ -17,8 +16,9 @@ class CardList extends React.Component {
         return (
         <div>
             {
-                this.state.items.map(function (item) {
-                    return <Card Data={item}/>})
+                this.state.items.map((item) => {
+                    return <Card Data={item} showDetail={this.props.showDetail} />
+                })
             }
             <p className="button-container">
                 <a className="text button" onClick={this.loadMoreTours}>Загрузить ещё</a>
@@ -34,7 +34,7 @@ class CardList extends React.Component {
     loadMoreTours() {
         if (request.readyState != 4 && request.readyState != 0)
             return;
-        request.open("GET", "http://localhost:53765/Tours/GetPage?page=" + page, true);
+        request.open("GET", "http://localhost:53765/Tours/GetPage?page=" + this.state.currentPage, true);
         request.onreadystatechange = function () {
             if (request.readyState == 4) {
                 var status = request.status;
@@ -46,7 +46,7 @@ class CardList extends React.Component {
             }
         }.bind(this);
         request.send();
-        ++page;
+        ++this.state.currentPage;
     }
 
     addTours(toursJson) {

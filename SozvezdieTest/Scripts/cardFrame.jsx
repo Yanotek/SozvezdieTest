@@ -6,12 +6,12 @@
         this.state = {
             detailId: 0,
             currentPage: 0,
-            state: "detailPage"
+            state: "fullList"
         };
     }
     render() {
         if (this.state.state === "fullList") {
-            return <CardList />;
+            return <CardList currentPage={this.state.currentPage} showDetail={this.showDetail} />;
         } else {
             return <CardDetail Id={this.state.detailId} showFullListClick={this.showFullList} />;
         }
@@ -21,11 +21,10 @@
         this.setState({ state: "fullList" });
     }
 
-    showDetail(tourId) {
-
+    showDetail(Id) {
         this.setState({
             state: "detailPage",
-            detailId: tourId
+            detailId: Id
         });
     }
 }
