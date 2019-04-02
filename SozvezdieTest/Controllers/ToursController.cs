@@ -25,7 +25,8 @@ namespace SozvezdieTest.Controllers
         [HttpGet]
         public ActionResult Details(int Id)
         {
-            return View(httpRepository.GetTour(Id));
+            return Json(httpRepository.GetTour(Id),
+                JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -33,8 +34,8 @@ namespace SozvezdieTest.Controllers
         {
             return Json(httpRepository
                 .GetTours(page, countToursOnPage)
-                .Select(x => new { x.Id, x.Title, x.Header, x.Duration, x.MinPrice, x.PhotoCard })
-                , JsonRequestBehavior.AllowGet);
+                .Select(x => new { x.Id, x.Title, x.Header, x.Duration, x.MinPrice, x.PhotoCard }),
+                JsonRequestBehavior.AllowGet);
         }
     }
 }

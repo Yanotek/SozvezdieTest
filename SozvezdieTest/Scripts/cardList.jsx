@@ -5,6 +5,7 @@ var request = new XMLHttpRequest();
 class CardList extends React.Component {
     constructor(props) {
         super(props);
+        this.showDetailPage = this.showDetailPage.bind(this);
         this.loadMoreTours = this.loadMoreTours.bind(this);
         this.addTours = this.addTours.bind(this);
         this.state = {
@@ -17,14 +18,17 @@ class CardList extends React.Component {
         <div>
             {
                 this.state.items.map(function (item) {
-                    return <Card Data={item}/>
-                })
-                }
-                <p className="button-container">
-                    <a className="text button" onClick={this.loadMoreTours}>Загрузить ещё</a>
-                </p>
+                    return <Card Data={item}/>})
+            }
+            <p className="button-container">
+                <a className="text button" onClick={this.loadMoreTours}>Загрузить ещё</a>
+            </p>
         </div>
         );
+    }
+
+    showDetailPage() {
+        alert("kek");
     }
 
     loadMoreTours() {
@@ -51,8 +55,3 @@ class CardList extends React.Component {
         this.setState({ items: list });
     }
 }
-
-ReactDOM.render(
-    <CardList />,
-    document.getElementById("content")
-);

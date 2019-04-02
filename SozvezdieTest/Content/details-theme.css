@@ -1,52 +1,10 @@
-﻿.container {
-    width: 1000px;
-    margin: 0 auto;
-}
+﻿
 
-.center {
-    text-align: center;
-    font-family: "Roboto",sans-serif;
-    color: #212121;
-}
 
-.duration-text {
-    font-size:30px;
-}
 
-.description {
-    font-size: 20px;
-    text-align:left;
-}
 
-.main-ico {
-    max-height: 400px;
-}
 
-.optional-ico {
-    display: inline-block;
-    max-height: 200px;
-}
 
-a.text:active,
-a.text:hover,
-a.text {
-    text-decoration: none;
-}
 
-.button {
-    background: #f97167;
-    display: block;
-    width: 240px;
-    text-align:center;
-    padding: 20px;
-    color: white;
-}
 
-.route-header {
-    font-size: 40px;
-    text-align: left;
-}
 
-.route-element {
-    font-size: 25px;
-}

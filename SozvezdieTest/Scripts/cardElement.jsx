@@ -1,4 +1,5 @@
 ﻿class Card extends React.Component {
+
     render() {
         {
             var photo;
@@ -11,7 +12,7 @@
             };
         }
         return <div className="element">
-            <a className="text" id="element-id" href={"/Tours/Details?id=" + this.props.Data.Id} >
+            <a className="text" id="element-id">
                 <div className="element-icon" id="element-icon" style={styleIcon}>
                     <div className="icon-description">
                         <h2 className="header" id="element-title">
