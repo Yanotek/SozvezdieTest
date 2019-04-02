@@ -1,6 +1,4 @@
-﻿@model IEnumerable<SozvezdieTest.Models.Tour>
-
-@{
+﻿@{
     Layout = null;
 }
 
@@ -13,31 +11,10 @@
     @Styles.Render("~/Content/mainCss")
 </head>
 <body>
-    @*<template id="tourElement">
-        @TourHelpers.MakeTour(null)
-    </template>*@
-    <section>
-        <div class="container">
-            @foreach (var tour in Model)
-            {
-                <div class="element">
-                    @TourHelpers.MakeTour(tour)
-                </div>
-                }
-                <p class="button-container">
-                    <a class="text button" onclick="loadMoreTours()">Загрузить ещё</a>
-                </p>
-            </div>
-</section>
-    <script type="text/javascript">
-        var card = '@Html.Raw(TourHelpers.MakeTour(null).ToString().Replace("\r\n",""))';
-
-        var wrap = document.createElement("div");
-        wrap.innerHTML = card;
-        wrap.setAttribute("class", "element");
-
-        //var template = wrap.getElementsByClassName("element");
-    </script>
-@Scripts.Render("~/tours/script")
+    <div class="container" id="content"></div>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.0/umd/react.development.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.0/umd/react-dom.development.js"></script>
+    <script src='@Url.Content("~/Scripts/cardElement.jsx")'></script>
+    <script src='@Url.Content("~/Scripts/cardList.jsx")'></script>
 </body>
 </html>

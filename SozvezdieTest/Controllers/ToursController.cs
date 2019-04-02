@@ -19,7 +19,7 @@ namespace SozvezdieTest.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(httpRepository.GetTours(0, countToursOnPage));
+            return View();
         }
 
         [HttpGet]
